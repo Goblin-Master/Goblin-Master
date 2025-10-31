@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goblin-Master - Backend Architect & Full-Stack Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace']
+                    },
+                    colors: {
+                        'slate-950': '#0f172a',
+                        'slate-900': '#1e293b',
+                        'slate-800': '#1e293b',
+                        'slate-700': '#334155',
+                        'slate-600': '#475569',
+                        'slate-500': '#64748b',
+                        'slate-400': '#94a3b8',
+                        'slate-300': '#cbd5e1',
+                        'slate-200': '#e2e8f0',
+                        'slate-100': '#f1f5f9',
+                        'slate-50': '#f8fafc',
+                        'cyan-400': '#22d3ee',
+                        'cyan-500': '#06b6d4',
+                        'cyan-600': '#0891b2',
+                        'emerald-400': '#34d399',
+                        'emerald-500': '#10b981',
+                        'emerald-600': '#059669',
+                        'amber-400': '#fbbf24',
+                        'amber-500': '#f59e0b',
+                        'amber-600': '#d97706',
+                        'rose-400': '#fb7185',
+                        'rose-500': '#f43f5e',
+                        'violet-400': '#a78bfa',
+                        'violet-500': '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #22d3ee, #8b5cf6, #f43f5e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .code-block {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid #334155;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        .tech-badge {
+            transition: all 0.2s ease;
+        }
+        
+        .tech-badge:hover {
+            transform: scale(1.05);
+        }
+        
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans overflow-x-hidden">
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative px-4">
+        <!-- Background Effects -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl floating"></div>
+            <div class="absolute top-3/4 right-1/4 w-48 h-48 bg-violet-500/10 rounded-full blur-3xl floating" style="animation-delay: -1s;"></div>
+            <div class="absolute top-1/2 left-1/2 w-32 h-32 bg-rose-500/10 rounded-full blur-3xl floating" style="animation-delay: -2s;"></div>
+        </div>
+        
+        <div class="text-center z-10 max-w-6xl mx-auto">
+            <!-- Avatar -->
+            <div class="mb-8 relative">
+                <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-cyan-500 to-violet-500 p-1">
+                    <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center">
+                        <i class="fas fa-user-astronaut text-4xl text-cyan-400"></i>
+                    </div>
+                </div>
+                <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-emerald-500 rounded-full border-4 border-slate-950 pulse-dot"></div>
+            </div>
+            
+            <!-- Name & Title -->
+            <h1 class="text-6xl md:text-8xl font-bold mb-4">
+                <span class="gradient-text">Goblin-Master</span>
+            </h1>
+            
+            <div class="text-xl md:text-2xl text-slate-300 mb-8 font-light">
+                <span class="text-cyan-400">Backend Architect</span> • 
+                <span class="text-violet-400">Full-Stack Engineer</span> • 
+                <span class="text-emerald-400">AI Integration Specialist</span>
+            </div>
+            
+            <!-- Code Block -->
+            <div class="code-block rounded-2xl p-6 mb-8 max-w-4xl mx-auto font-mono text-sm">
+                <div class="flex items-center mb-4">
+                    <div class="flex space-x-2">
+                        <div class="w-3 h-3 bg-rose-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-amber-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-emerald-500 rounded-full"></div>
+                    </div>
+                    <span class="ml-4 text-slate-400">developer_profile.go</span>
+                </div>
+                
+                <div class="text-left">
+                    <div class="text-slate-400"><span class="text-violet-400">package</span> main</div>
+                    <div class="mt-4">
+                        <div class="text-slate-400"><span class="text-violet-400">type</span> <span class="text-cyan-400">Developer</span> <span class="text-violet-400">struct</span> {</div>
+                        <div class="ml-4">Name       <span class="text-emerald-400">string</span></div>
+                        <div class="ml-4">Focus      []<span class="text-emerald-400">string</span></div>
+                        <div class="ml-4">Experience <span class="text-emerald-400">int</span></div>
+                        <div class="ml-4">Languages  []<span class="text-emerald-400">string</span></div>
+                        <div class="ml-4">Frameworks []<span class="text-emerald-400">string</span></div>
+                        <div class="text-slate-400">}</div>
+                    </div>
+                    <div class="mt-4 text-slate-500">// Building scalable systems with modern tech stack</div>
+                    <div class="text-slate-500">// Passionate about clean architecture and DDD principles</div>
+                </div>
+            </div>
+            
+            <!-- Quick Stats -->
+            <div class="flex justify-center space-x-8 text-sm">
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-cyan-400">8</div>
+                    <div class="text-slate-400">Public Repos</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-violet-400">18</div>
+                    <div class="text-slate-400">Stars Earned</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-emerald-400">447</div>
+                    <div class="text-slate-400">Contributions</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Tech Stack Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Tech Stack</h2>
+            
+            <!-- Backend Technologies -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-8 text-center text-cyan-400">
+                    <i class="fas fa-server mr-3"></i>Backend Development
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
+                        <i class="fab fa-golang text-3xl text-cyan-400 mb-2"></i>
+                        <div class="text-sm font-medium">Go</div>
+                    </div>
+                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
+                        <i class="fas fa-rocket text-3xl text-emerald-400 mb-2"></i>
+                        <div class="text-sm font-medium">Gin</div>
+                    </div>
+                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
+                        <i class="fas fa-cube text-3xl text-violet-400 mb-2"></i>
+                        <div class="text-sm font-medium">Go-Zero</div>
+                    </div>
+                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
+                        <i class="fas fa-database text-3xl text-amber-400 mb-2"></i>
+                        <div class="text-sm font-medium">GORM</div>
+                    </div>
+                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
+                        <i class="fas fa-server text-3xl text-blue-400 mb-2"></i>
+                        <div class="text-sm font-medium">MySQL</div>
+                    </div>
+                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
+                        <i class="fas fa-memory text-3xl text-red-400 mb-2"></i>
+                        <div class="text-sm font-medium">Redis</div>
+                    </div>
+                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
+                        <i class="fas fa-envelope text-3xl text-orange-400 mb-2"></i>
+                        <div class="text-sm font-medium">RabbitMQ</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Frontend Technologies -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-8 text-center text-violet-400">
+                    <i class="fas fa-desktop mr-3"></i>Frontend Development
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
+                        <i class="fab fa-vuejs text-3xl text-emerald-400 mb-2"></i>
+                        <div class="text-sm font-medium">Vue.js</div>
+                    </div>
+                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
+                        <i class="fab fa-js-square text-3xl text-blue-400 mb-2"></i>
+                        <div class="text-sm font-medium">TypeScript</div>
+                    </div>
+                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
+                        <i class="fas fa-palette text-3xl text-blue-500 mb-2"></i>
+                        <div class="text-sm font-medium">Element Plus</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DevOps & Tools -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-8 text-center text-emerald-400">
+                    <i class="fas fa-cogs mr-3"></i>DevOps & Tools
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
+                        <i class="fab fa-docker text-3xl text-blue-400 mb-2"></i>
+                        <div class="text-sm font-medium">Docker</div>
+                    </div>
+                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
+                        <i class="fas fa-play-circle text-3xl text-orange-400 mb-2"></i>
+                        <div class="text-sm font-medium">GitHub Actions</div>
+                    </div>
+                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
+                        <i class="fab fa-linux text-3xl text-yellow-400 mb-2"></i>
+                        <div class="text-sm font-medium">Linux</div>
+                    </div>
+                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
+                        <i class="fas fa-code-branch text-3xl text-orange-500 mb-2"></i>
+                        <div class="text-sm font-medium">Git</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Projects Section -->
+    <section class="py-20 px-4 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Featured Projects</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Volunteer Team Project -->
+                <div class="card-hover bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-users text-2xl text-cyan-400 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Volunteer Team</h3>
+                    </div>
+                    <p class="text-slate-400 mb-4">Full-stack volunteer management system with authentication, reporting, and permission control.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-cyan-500/20 text-cyan-400 px-2 py-1 rounded text-xs">Vue 3</span>
+                        <span class="bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded text-xs">Gin</span>
+                        <span class="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs">MySQL</span>
+                        <span class="bg-red-500/20 text-red-400 px-2 py-1 rounded text-xs">Redis</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center text-sm text-slate-400">
+                            <i class="fas fa-star mr-1 text-yellow-400"></i>
+                            <span>12 stars</span>
+                        </div>
+                        <a href="https://github.com/Goblin-Master/volunteer-team" class="text-cyan-400 hover:text-cyan-300 transition-colors">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Debate System Project -->
+                <div class="card-hover bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-robot text-2xl text-violet-400 mr-3"></i>
+                        <h3 class="text-xl font-semibold">AI Debate System</h3>
+                    </div>
+                    <p class="text-slate-400 mb-4">Microservices debate platform with real-time WebSocket communication and AI auto-debating.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-violet-500/20 text-violet-400 px-2 py-1 rounded text-xs">Go-Zero</span>
+                        <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs">WebSocket</span>
+                        <span class="bg-purple-500/20 text-purple-400 px-2 py-1 rounded text-xs">AI</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center text-sm text-slate-400">
+                            <i class="fas fa-code-branch mr-1 text-blue-400"></i>
+                            <span>46 commits</span>
+                        </div>
+                        <a href="https://github.com/Goblin-Master/Debate-System" class="text-violet-400 hover:text-violet-300 transition-colors">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Island Framework Project -->
+                <div class="card-hover bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-island-tropical text-2xl text-emerald-400 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Island Framework</h3>
+                    </div>
+                    <p class="text-slate-400 mb-4">Go web development framework with DDD architecture and IOC design principles.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-cyan-500/20 text-cyan-400 px-2 py-1 rounded text-xs">Gin</span>
+                        <span class="bg-orange-500/20 text-orange-400 px-2 py-1 rounded text-xs">GORM</span>
+                        <span class="bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded text-xs">DDD</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center text-sm text-slate-400">
+                            <i class="fas fa-star mr-1 text-yellow-400"></i>
+                            <span>5 stars</span>
+                        </div>
+                        <a href="https://github.com/Goblin-Master/island" class="text-emerald-400 hover:text-emerald-300 transition-colors">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Current Focus Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-16 gradient-text">Current Focus</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                    <div class="text-4xl mb-4">🏗️</div>
+                    <h3 class="text-xl font-semibold mb-3 text-cyan-400">Microservices Architecture</h3>
+                    <p class="text-slate-400">Building scalable distributed systems with clean architecture principles</p>
+                </div>
+                
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                    <div class="text-4xl mb-4">🤖</div>
+                    <h3 class="text-xl font-semibold mb-3 text-violet-400">AI Integration</h3>
+                    <p class="text-slate-400">Exploring AI-powered applications and intelligent automation systems</p>
+                </div>
+                
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h3 class="text-xl font-semibold mb-3 text-emerald-400">Performance Optimization</h3>
+                    <p class="text-slate-400">High-concurrency system design and performance tuning</p>
+                </div>
+                
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                    <div class="text-4xl mb-4">🛠️</div>
+                    <h3 class="text-xl font-semibold mb-3 text-amber-400">Clean Architecture</h3>
+                    <p class="text-slate-400">DDD, SOLID principles, and modern design patterns</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12 px-4 bg-slate-900/50">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-8">
+                <blockquote class="text-lg italic text-slate-300 mb-4">
+                    "Every line of code is a step towards innovation. I'm passionate about building systems that not only work but inspire others to push the boundaries of what's possible."
+                </blockquote>
+            </div>
+            
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://github.com/Goblin-Master" class="text-slate-400 hover:text-cyan-400 transition-colors text-2xl">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:your.email@example.com" class="text-slate-400 hover:text-violet-400 transition-colors text-2xl">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" class="text-slate-400 hover:text-emerald-400 transition-colors text-2xl">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+            
+            <div class="text-slate-500 text-sm">
+                Last Updated: October 2025
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Add smooth scrolling and interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Add scroll-based animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all cards and sections
+            document.querySelectorAll('.card-hover, section > div').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
