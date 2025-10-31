@@ -7,7 +7,7 @@
 ## 🌐 Personal Website
 
 Check out my interactive homepage:  
-👉 [https://goblin-master.github.io](https://goblin-master.github.io)
+👉 [https://goblin-master.github.io](https://goblin-master.github.io/Goblin-Master/)
 
 ## 🌟 About Me
 
