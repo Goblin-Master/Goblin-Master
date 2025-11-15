@@ -6,8 +6,8 @@
 
 ## 🌐 Personal Website
 
-Check out my interactive homepage:  
-👉 [https://goblin-master.github.io](https://goblin-master.github.io/Goblin-Master/)
+Check out my interactive homepage:
+👉 [https://goblin-master.github.io/Goblin-Master/](https://goblin-master.github.io/Goblin-Master/)
 
 ## 🌟 About Me
 
@@ -37,7 +37,7 @@ func main() {
         Languages:  []string{"Go", "Vue.js", "TypeScript", "Python"},
         Frameworks: []string{"Gin", "Go-Zero", "GORM", "Element Plus"},
     }
-    
+  
     // Building scalable systems with modern tech stack
     // Passionate about clean architecture and DDD principles
 }
@@ -48,6 +48,7 @@ func main() {
 ## 🔧 Tech Stack
 
 ### Backend Development
+
 ![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)
 ![Gin](https://img.shields.io/badge/Gin-0090FF?style=flat-square&logo=go&logoColor=white)
 ![Go-Zero](https://img.shields.io/badge/Go--Zero-00ADD8?style=flat-square&logo=go&logoColor=white)
@@ -57,11 +58,13 @@ func main() {
 ![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=flat-square&logo=rabbitmq&logoColor=white)
 
 ### Frontend Development
+
 ![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=vue.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![Element Plus](https://img.shields.io/badge/Element--Plus-409EFF?style=flat-square&logo=element&logoColor=white)
 
 ### DevOps & Tools
+
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
@@ -71,23 +74,33 @@ func main() {
 ## 🚀 Featured Projects
 
 ### 🏆 [Volunteer Team Management System](https://github.com/Goblin-Master/volunteer-team)
+
 **Vue + Go Full-Stack Application**
+
 - **Frontend**: Vue 3, Element Plus, Pinia
 - **Backend**: Gin, GORM, Redis, MySQL, RabbitMQ
 - **Features**: Authentication, Permission Management, Report Generation
-- **⭐ 12 Stars**
+  [![Stars](https://img.shields.io/github/stars/Goblin-Master/volunteer-team?style=flat-square)](https://github.com/Goblin-Master/volunteer-team)
+  ![Commits (last year)](https://img.shields.io/github/commit-activity/y/Goblin-Master/volunteer-team?style=flat-square)
 
 ### 🎭 [AI Debate System](https://github.com/Goblin-Master/Debate-System)
+
 **Microservices Architecture with Go-Zero**
+
 - **Tech Stack**: Go-Zero, WebSocket, AI Integration
 - **Features**: Real-time Communication, AI Auto-Debating, User Management
 - **Architecture**: Microservices with Clean Code Principles
+  [![Stars](https://img.shields.io/github/stars/Goblin-Master/Debate-System?style=flat-square)](https://github.com/Goblin-Master/Debate-System)
+  ![Commits (last year)](https://img.shields.io/github/commit-activity/y/Goblin-Master/Debate-System?style=flat-square)
 
 ### 🏝️ [Island Framework](https://github.com/Goblin-Master/island)
+
 **Go Web Development Framework**
+
 - **Tech Stack**: Gin, GORM, MySQL, Redis, Zap, Viper
 - **Features**: DDD Architecture, IOC Design, Interface-Oriented Programming
-- **⭐ 5 Stars**
+  [![Stars](https://img.shields.io/github/stars/Goblin-Master/island?style=flat-square)](https://github.com/Goblin-Master/island)
+  ![Commits (last year)](https://img.shields.io/github/commit-activity/y/Goblin-Master/island?style=flat-square)
 
 ---
 

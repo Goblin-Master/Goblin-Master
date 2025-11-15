@@ -280,10 +280,11 @@
                         <span class="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs">MySQL</span>
                         <span class="bg-red-500/20 text-red-400 px-2 py-1 rounded text-xs">Redis</span>
                     </div>
+                    <!-- Volunteer Team Project stars -->
                     <div class="flex items-center justify-between">
                         <div class="flex items-center text-sm text-slate-400">
                             <i class="fas fa-star mr-1 text-yellow-400"></i>
-                            <span>12 stars</span>
+                            <span><span id="volunteer-stars">--</span> stars</span>
                         </div>
                         <a href="https://github.com/Goblin-Master/volunteer-team" class="text-cyan-400 hover:text-cyan-300 transition-colors">
                             <i class="fas fa-external-link-alt"></i>
@@ -303,10 +304,11 @@
                         <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs">WebSocket</span>
                         <span class="bg-purple-500/20 text-purple-400 px-2 py-1 rounded text-xs">AI</span>
                     </div>
+                    <!-- AI Debate System commits (last year) -->
                     <div class="flex items-center justify-between">
                         <div class="flex items-center text-sm text-slate-400">
                             <i class="fas fa-code-branch mr-1 text-blue-400"></i>
-                            <span>46 commits</span>
+                            <span><span id="debate-commits">--</span> commits (last year)</span>
                         </div>
                         <a href="https://github.com/Goblin-Master/Debate-System" class="text-violet-400 hover:text-violet-300 transition-colors">
                             <i class="fas fa-external-link-alt"></i>
@@ -326,10 +328,11 @@
                         <span class="bg-orange-500/20 text-orange-400 px-2 py-1 rounded text-xs">GORM</span>
                         <span class="bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded text-xs">DDD</span>
                     </div>
+                    <!-- Island Framework stars -->
                     <div class="flex items-center justify-between">
                         <div class="flex items-center text-sm text-slate-400">
                             <i class="fas fa-star mr-1 text-yellow-400"></i>
-                            <span>5 stars</span>
+                            <span><span id="island-stars">--</span> stars</span>
                         </div>
                         <a href="https://github.com/Goblin-Master/island" class="text-emerald-400 hover:text-emerald-300 transition-colors">
                             <i class="fas fa-external-link-alt"></i>
@@ -400,6 +403,63 @@
         </div>
     </footer>
     
+    <!-- Place this before </body> -->
+    <script>
+    // Minimal GitHub stats fetcher for specific repos
+    (async function () {
+    const repos = {
+    volunteer: 'Goblin-Master/volunteer-team',
+    debate: 'Goblin-Master/Debate-System',
+    island: 'Goblin-Master/island',
+    };
+    
+    async function fetchStars(repo) {
+    const res = await fetch(`https://api.github.com/repos/${repo}`);
+    if (!res.ok) throw new Error(`Repo fetch failed: ${repo} ${res.status}`);
+    const data = await res.json();
+    return data.stargazers_count ?? null;
+    }
+    
+    async function fetchCommitActivity(repo) {
+    // Returns weekly commits for last 52 weeks; may respond 202 while generating
+    for (let i = 0; i < 3; i++) {
+    const res = await fetch(`https://api.github.com/repos/${repo}/stats/commit_activity`);
+    if (res.status === 202) {
+    await new Promise(r => setTimeout(r, 800));
+    continue;
+    }
+    if (!res.ok) throw new Error(`Commit activity failed: ${repo} ${res.status}`);
+    const weeks = await res.json();
+    if (Array.isArray(weeks)) {
+    return weeks.reduce((sum, w) => sum + (w.total || 0), 0);
+    }
+    break;
+    }
+    return null;
+    }
+    
+    function setText(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = (value ?? '—').toString();
+    }
+    
+    try {
+    const [volStars, debateCommits, islandStars] = await Promise.all([
+    fetchStars(repos.volunteer),
+    fetchCommitActivity(repos.debate),
+    fetchStars(repos.island),
+    ]);
+    setText('volunteer-stars', volStars);
+    setText('debate-commits', debateCommits);
+    setText('island-stars', islandStars);
+    } catch (err) {
+    console.warn('GitHub API error:', err);
+    setText('volunteer-stars', null);
+    setText('debate-commits', null);
+    setText('island-stars', null);
+    }
+    })();
+    </script>
     <script>
         // Add smooth scrolling and interactive effects
         document.addEventListener('DOMContentLoaded', function() {
