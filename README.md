@@ -7,7 +7,7 @@
 ## 🌐 Personal Website
 
 Check out my interactive homepage:
-👉 [https://goblin-master.github.io/Goblin-Master/](https://goblin-master.github.io/Goblin-Master/)
+👉 [https://goblin-master.github.io](https://goblin-master.github.io/Goblin-Master/)
 
 ## 🌟 About Me
 
@@ -73,34 +73,33 @@ func main() {
 
 ## 🚀 Featured Projects
 
-### 🏆 [Volunteer Team Management System](https://github.com/Goblin-Master/volunteer-team)
+### 🏆 Volunteer Team Management System
 
 **Vue + Go Full-Stack Application**
 
 - **Frontend**: Vue 3, Element Plus, Pinia
 - **Backend**: Gin, GORM, Redis, MySQL, RabbitMQ
 - **Features**: Authentication, Permission Management, Report Generation
-  [![Stars](https://img.shields.io/github/stars/Goblin-Master/volunteer-team?style=flat-square)](https://github.com/Goblin-Master/volunteer-team)
-  ![Commits (last year)](https://img.shields.io/github/commit-activity/y/Goblin-Master/volunteer-team?style=flat-square)
+- **Repository**: `https://github.com/Goblin-Master/volunteer-team`
 
-### 🎭 [AI Debate System](https://github.com/Goblin-Master/Debate-System)
+### 🎭 AI Debate System
 
 **Microservices Architecture with Go-Zero**
 
 - **Tech Stack**: Go-Zero, WebSocket, AI Integration
 - **Features**: Real-time Communication, AI Auto-Debating, User Management
 - **Architecture**: Microservices with Clean Code Principles
-  [![Stars](https://img.shields.io/github/stars/Goblin-Master/Debate-System?style=flat-square)](https://github.com/Goblin-Master/Debate-System)
-  ![Commits (last year)](https://img.shields.io/github/commit-activity/y/Goblin-Master/Debate-System?style=flat-square)
+- **Repository**: `https://github.com/Goblin-Master/Debate-System`
 
-### 🏝️ [Island Framework](https://github.com/Goblin-Master/island)
+### 🏝️ Island
 
-**Go Web Development Framework**
+**Go Application**
 
-- **Tech Stack**: Gin, GORM, MySQL, Redis, Zap, Viper
-- **Features**: DDD Architecture, IOC Design, Interface-Oriented Programming
-  [![Stars](https://img.shields.io/github/stars/Goblin-Master/island?style=flat-square)](https://github.com/Goblin-Master/island)
-  ![Commits (last year)](https://img.shields.io/github/commit-activity/y/Goblin-Master/island?style=flat-square)
+- **Tech Stack**: Go, WebSocket, Gin, Gorm
+- **Features**: AI integration, user management, QQ login, real-time chat
+- **Architecture**: DDD and IOC design principles
+- **Features**: Authentication, Permission Management, Report Generation
+- **Repository**: `https://github.com/Goblin-Master/island`
 
 ---
 
