@@ -14,7 +14,7 @@
 
 ### 🛠 About Me
 
-用 Go 写后端，顺手也写点前端。喜欢把系统拆开看结构，最近在从零实现一个 CLI Agent。
+用 Go 写后端，顺手写点前端 —— 励志吃上互联网这碗饭 🍚
 
 <p align="center">
   <picture>
