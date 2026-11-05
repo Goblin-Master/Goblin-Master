@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="Goblin-Master — Backend Engineer, Go, AI Agents">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#16181B" opacity="0.06"/>
+    </pattern>
+    <radialGradient id="glow" cx="0.14" cy="0.05" r="0.75">
+      <stop offset="0%" stop-color="#C08A45" stop-opacity="0.15"/>
+      <stop offset="55%" stop-color="#C08A45" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#C08A45" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.86" cy="0.9" r="0.6">
+      <stop offset="0%" stop-color="#2F9E8F" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#2F9E8F" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#B4793A" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#B4793A" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="300" rx="14" fill="#FAF8F4"/>
+  <rect width="1200" height="300" rx="14" fill="url(#dots)"/>
+  <rect width="1200" height="300" rx="14" fill="url(#glow)"/>
+  <rect width="1200" height="300" rx="14" fill="url(#glow2)"/>
+  <rect x="0.5" y="0.5" width="1199" height="299" rx="13.5" fill="none" stroke="#16181B" stroke-opacity="0.08"/>
+
+  <rect x="64" y="86" width="3" height="128" rx="1.5" fill="#B4793A"/>
+
+  <text x="88" y="103" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="13" letter-spacing="3.6" fill="#93602A">BACKEND ENGINEER · GO · AI AGENTS</text>
+
+  <text x="86" y="172" font-family="Inter,'Segoe UI',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif" font-size="62" font-weight="800" letter-spacing="-1.6" fill="#16181B">GOBLIN-MASTER</text>
+
+  <text x="88" y="212" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="17" fill="#5A5E64">从零写 agent，用 Go 把系统拼起来。</text>
+
+  <rect x="88" y="238" width="360" height="1" fill="url(#rule)"/>
+
+  <text x="88" y="266" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12.5" letter-spacing="1.2" fill="#6F747B">github.com/Goblin-Master</text>
+
+  <g transform="translate(1000 150)">
+    <path d="M0,-110 L95.3,-55 L95.3,55 L0,110 L-95.3,55 L-95.3,-55 Z"
+          fill="none" stroke="#B4793A" stroke-opacity="0.22" stroke-width="1"/>
+    <path d="M0,-74 L64.1,-37 L64.1,37 L0,74 L-64.1,37 L-64.1,-37 Z"
+          fill="#B4793A" fill-opacity="0.07" stroke="#B4793A" stroke-opacity="0.85" stroke-width="1.6"/>
+    <text x="0" y="0" text-anchor="middle" dominant-baseline="central"
+          font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace"
+          font-size="46" font-weight="700" letter-spacing="1" fill="#93602A">GM</text>
+    <circle cx="0" cy="-74" r="3.2" fill="#2F9E8F"/>
+    <circle cx="0" cy="74" r="3.2" fill="#B4793A" fill-opacity="0.6"/>
+  </g>
+</svg>

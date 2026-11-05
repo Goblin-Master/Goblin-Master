@@ -1,136 +1,76 @@
-# 🚀 Goblin-Master
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg">
+  <img alt="Goblin-Master — Backend Engineer, Go, AI Agents" src="./assets/banner-light.svg" width="100%">
+</picture>
 
-> **Backend Architect & Full-Stack Engineer** | **Microservices Enthusiast** | **AI Integration Specialist**
+<div align="center">
 
----
+[![followers](https://img.shields.io/github/followers/Goblin-Master?style=flat-square&label=followers&color=E0A458&labelColor=0B0C0E&logo=github&logoColor=E0A458)](https://github.com/Goblin-Master?tab=followers)
+[![now](https://img.shields.io/badge/now-building_a_CLI_agent-5EC8B8?style=flat-square&labelColor=0B0C0E)](https://github.com/Goblin-Master/goblin)
+[![site](https://img.shields.io/badge/site-goblin--master.github.io-E0A458?style=flat-square&labelColor=0B0C0E)](https://goblin-master.github.io/Goblin-Master/)
 
-## 🌐 Personal Website
+</div>
 
-Check out my interactive homepage:
-👉 [https://goblin-master.github.io](https://goblin-master.github.io/Goblin-Master/)
+## 关于
 
-## 🌟 About Me
+后端工程师。喜欢把系统拆开看结构——DDD、IOC、分层边界，这些比换框架本身更让我上心。
+最近在啃 agent：不套现成框架，从主循环、工具注册、上下文压缩一层层自己实现。
 
 ```go
-package main
-
-import (
-    "github.com/gin-gonic/gin"
-    "github.com/go-zero/go-zero"
-)
-
-type Developer struct {
-    Name        string
-    Focus       []string
-    Experience  int
-    Location    string
-    Languages   []string
-    Frameworks  []string
-}
-
-func main() {
-    me := Developer{
-        Name:       "Goblin-Master",
-        Focus:      []string{"Backend Development", "Microservices", "AI Integration"},
-        Experience: 3,
-        Location:   "China",
-        Languages:  []string{"Go", "Vue.js", "TypeScript", "Python"},
-        Frameworks: []string{"Gin", "Go-Zero", "GORM", "Element Plus"},
-    }
-  
-    // Building scalable systems with modern tech stack
-    // Passionate about clean architecture and DDD principles
+type Engineer struct {
+    Focus   []string // 后端 · 微服务 · Agent
+    Stack   []string // Go, Gin, go-zero, GORM, Vue 3
+    Current string   // 从零写一个 CLI agent
 }
 ```
 
----
+## 正在做
 
-## 🔧 Tech Stack
+### [goblin](https://github.com/Goblin-Master/goblin) · 从零实现的 CLI Agent
 
-### Backend Development
+不依赖 LangGraph、OpenHands、OpenClaw 这类框架，主循环、工具注册、上下文压缩、Session 持久化全部在本仓库实现；模型接 DeepSeek 的 OpenAI 兼容接口。
 
-![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)
-![Gin](https://img.shields.io/badge/Gin-0090FF?style=flat-square&logo=go&logoColor=white)
-![Go-Zero](https://img.shields.io/badge/Go--Zero-00ADD8?style=flat-square&logo=go&logoColor=white)
-![GORM](https://img.shields.io/badge/GORM-00ADD8?style=flat-square&logo=go&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
-![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=flat-square&logo=rabbitmq&logoColor=white)
+- **Agent 主循环** — 工具执行、结果回填、错误回喂、最大轮次保护
+- **原生 `tool_calls`** — 工具描述与 JSON Schema 随请求下发，由模型自主决策
+- **上下文压缩** — 按 token 预算自动触发，`/compact` 手动压到消息末尾，摘要失败自动降级
+- **Session** — UUID 严格恢复，MySQL 持久化，窗口之间互不污染
+- **结构化日志** — JSONL 记录每次 LLM 请求与工具调用，每条带 `session_id` / `trace_id`
 
-### Frontend Development
+`Go` `Cobra` `DeepSeek` `MySQL` `Viper`
 
-![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=vue.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Element Plus](https://img.shields.io/badge/Element--Plus-409EFF?style=flat-square&logo=element&logoColor=white)
+## 其他项目
 
-### DevOps & Tools
+| 项目 | 说明 | 栈 |
+|:---|:---|:---|
+| **[volunteer-team](https://github.com/Goblin-Master/volunteer-team)** ⭐ 10 | 志愿团队管理系统，认证、权限、报表一条龙 | `Vue 3` `Gin` `GORM` `Redis` `RabbitMQ` |
+| **[island](https://github.com/Goblin-Master/island)** ⭐ 4 | 按 DDD + IOC 搭的 Go Web 框架，带 AI 与实时聊天 | `Go` `Gin` `WebSocket` `GORM` |
+| **[framework](https://github.com/Goblin-Master/framework)** ⭐ 2 | 面向接口 + DDD + IOC 的架构骨架 | `Go` |
+| **[Debate-System](https://github.com/Goblin-Master/Debate-System)** | 基于 go-zero 的辩论系统，WebSocket 通讯 + AI 自动辩论 | `go-zero` `WebSocket` |
+| **[statusly](https://github.com/Goblin-Master/statusly)** | 极简 HTTP 状态码速查浏览器扩展（Manifest V3） | `JavaScript` |
+| **[Claw](https://github.com/Goblin-Master/Claw)** | 用 Cobra 一点点写出来的 CLI 实验场 | `Go` `Cobra` |
 
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
+## 技术栈
 
----
+<img src="https://skillicons.dev/icons?i=go,mysql,redis,docker,linux,git,githubactions,vue,ts,js,py,rust&theme=dark&perline=12" alt="tech stack" />
 
-## 🚀 Featured Projects
+<sub>Gin · go-zero · GORM · Cobra · WebSocket · RabbitMQ · Element Plus</sub>
 
-### 🏆 Volunteer Team Management System
+## 数据
 
-**Vue + Go Full-Stack Application**
+<div align="center">
 
-- **Frontend**: Vue 3, Element Plus, Pinia
-- **Backend**: Gin, GORM, Redis, MySQL, RabbitMQ
-- **Features**: Authentication, Permission Management, Report Generation
-- **Repository**: `https://github.com/Goblin-Master/volunteer-team`
+<img height="168" alt="GitHub stats" src="https://github-readme-stats.vercel.app/api?username=Goblin-Master&show_icons=true&include_all_commits=true&count_private=true&rank_icon=github&hide_border=true&border_radius=12&bg_color=0B0C0E&title_color=E0A458&icon_color=5EC8B8&text_color=C3C0BA" />
+<img height="168" alt="Top languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Goblin-Master&layout=compact&langs_count=8&hide_border=true&border_radius=12&bg_color=0B0C0E&title_color=E0A458&text_color=C3C0BA" />
 
-### 🎭 AI Debate System
+</div>
 
-**Microservices Architecture with Go-Zero**
+## 联系
 
-- **Tech Stack**: Go-Zero, WebSocket, AI Integration
-- **Features**: Real-time Communication, AI Auto-Debating, User Management
-- **Architecture**: Microservices with Clean Code Principles
-- **Repository**: `https://github.com/Goblin-Master/Debate-System`
-
-### 🏝️ Island
-
-**Go Application**
-
-- **Tech Stack**: Go, WebSocket, Gin, Gorm
-- **Features**: AI integration, user management, QQ login, real-time chat
-- **Architecture**: DDD and IOC design principles
-- **Features**: Authentication, Permission Management, Report Generation
-- **Repository**: `https://github.com/Goblin-Master/island`
+[![GitHub](https://img.shields.io/badge/GitHub-Goblin--Master-0B0C0E?style=flat-square&logo=github&logoColor=E7E5E1)](https://github.com/Goblin-Master)
+&nbsp;
+[![Issues](https://img.shields.io/badge/%E6%9C%89%E9%97%AE%E9%A2%98-open_an_issue-E0A458?style=flat-square&labelColor=0B0C0E)](https://github.com/Goblin-Master/Goblin-Master/issues/new)
 
 ---
 
-## 📊 GitHub Stats
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Goblin-Master&show_icons=true&theme=radical&hide_border=true)
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Goblin-Master&layout=compact&theme=radical&hide_border=true)
-
----
-
-## 🎯 Current Focus
-
-- 🏗️ **Microservices Architecture**: Building scalable distributed systems
-- 🤖 **AI Integration**: Exploring AI-powered applications and automation
-- 📊 **Performance Optimization**: High-concurrency system design
-- 🛠️ **Clean Architecture**: DDD, SOLID principles, and design patterns
-
----
-
-## 📫 Let's Connect
-
-[![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white)](https://github.com/Goblin-Master)
-[![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:your.email@example.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourprofile)
-
----
-
-## 💡 Fun Fact
-
-> "Every line of code is a step towards innovation. I'm passionate about building systems that not only work but inspire others to push the boundaries of what's possible."
-
----
-
-*Last Updated: October 2025*
+<div align="center"><sub>写代码是把手弄脏的活。</sub></div>

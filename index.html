@@ -1,671 +1,377 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goblin-Master - Backend Architect & Full-Stack Engineer</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'mono': ['JetBrains Mono', 'monospace']
-                    },
-                    colors: {
-                        'slate-950': '#0f172a',
-                        'slate-900': '#1e293b',
-                        'slate-800': '#1e293b',
-                        'slate-700': '#334155',
-                        'slate-600': '#475569',
-                        'slate-500': '#64748b',
-                        'slate-400': '#94a3b8',
-                        'slate-300': '#cbd5e1',
-                        'slate-200': '#e2e8f0',
-                        'slate-100': '#f1f5f9',
-                        'slate-50': '#f8fafc',
-                        'cyan-400': '#22d3ee',
-                        'cyan-500': '#06b6d4',
-                        'cyan-600': '#0891b2',
-                        'emerald-400': '#34d399',
-                        'emerald-500': '#10b981',
-                        'emerald-600': '#059669',
-                        'amber-400': '#fbbf24',
-                        'amber-500': '#f59e0b',
-                        'amber-600': '#d97706',
-                        'rose-400': '#fb7185',
-                        'rose-500': '#f43f5e',
-                        'violet-400': '#a78bfa',
-                        'violet-500': '#8b5cf6',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .gradient-text {
-            background: linear-gradient(135deg, #22d3ee, #8b5cf6, #f43f5e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .code-block {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border: 1px solid #334155;
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-        
-        .tech-badge {
-            transition: all 0.2s ease;
-        }
-        
-        .tech-badge:hover {
-            transform: scale(1.05);
-        }
-        
-        .pulse-dot {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        /* Loading animation */
-        .loading-skeleton {
-            background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
-            background-size: 200% 100%;
-            animation: loading 1.5s infinite;
-        }
-        
-        @keyframes loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Goblin-Master · Backend Engineer</title>
+<meta name="description" content="Goblin-Master — 后端工程师。用 Go 写服务，喜欢拆结构：DDD、IOC、清晰的边界。最近在从零实现一个 CLI Agent。">
+<meta name="theme-color" content="#0b0c0e">
+<meta property="og:title" content="Goblin-Master · Backend Engineer">
+<meta property="og:description" content="用 Go 把系统拼起来。最近在从零写一个 CLI Agent。">
+<meta property="og:type" content="profile">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css">
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans overflow-x-hidden">
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center relative px-4">
-        <!-- Background Effects -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl floating"></div>
-            <div class="absolute top-3/4 right-1/4 w-48 h-48 bg-violet-500/10 rounded-full blur-3xl floating" style="animation-delay: -1s;"></div>
-            <div class="absolute top-1/2 left-1/2 w-32 h-32 bg-rose-500/10 rounded-full blur-3xl floating" style="animation-delay: -2s;"></div>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <b>GM</b>
+      <span>~/</span>goblin-master
+    </a>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="#work">项目</a>
+        <a href="#stack">技术栈</a>
+        <a href="#now">近况</a>
+      </nav>
+      <a class="nav-cta" href="https://github.com/Goblin-Master" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============================ hero ============================ -->
+  <section class="hero" style="padding-bottom:56px">
+    <div class="hero-copy">
+      <p class="eyebrow">Backend · Go · AI Agents</p>
+      <h1>Goblin-Master<span class="caret" aria-hidden="true"></span></h1>
+      <p class="lede">
+        用 Go 把系统拼起来，也写前端。更喜欢拆结构——<em>DDD、IOC、清晰的边界</em>，
+        这些比换框架本身更值得琢磨。最近在啃 agent：不套现成框架，从主循环开始一层层自己实现。
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://github.com/Goblin-Master?tab=repositories" target="_blank" rel="noopener">浏览仓库</a>
+        <a class="btn btn-ghost" href="https://github.com/Goblin-Master/goblin" target="_blank" rel="noopener">看看 goblin →</a>
+      </div>
+      <dl class="stats">
+        <div>
+          <dt>public repos</dt>
+          <dd data-stat="repos">18</dd>
         </div>
-        
-        <div class="text-center z-10 max-w-6xl mx-auto">
-            <!-- Avatar -->
-            <div class="mb-8 relative">
-                <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-cyan-500 to-violet-500 p-1">
-                    <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center">
-                        <i class="fas fa-user-astronaut text-4xl text-cyan-400"></i>
-                    </div>
-                </div>
-                <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-emerald-500 rounded-full border-4 border-slate-950 pulse-dot"></div>
-            </div>
-            
-            <!-- Name & Title -->
-            <h1 class="text-6xl md:text-8xl font-bold mb-4">
-                <span class="gradient-text">Goblin-Master</span>
-            </h1>
-            
-            <div class="text-xl md:text-2xl text-slate-300 mb-8 font-light">
-                <span class="text-cyan-400">Backend Architect</span> • 
-                <span class="text-violet-400">Full-Stack Engineer</span> • 
-                <span class="text-emerald-400">AI Integration Specialist</span>
-            </div>
-            
-            <!-- Code Block -->
-            <div class="code-block rounded-2xl p-6 mb-8 max-w-4xl mx-auto font-mono text-sm">
-                <div class="flex items-center mb-4">
-                    <div class="flex space-x-2">
-                        <div class="w-3 h-3 bg-rose-500 rounded-full"></div>
-                        <div class="w-3 h-3 bg-amber-500 rounded-full"></div>
-                        <div class="w-3 h-3 bg-emerald-500 rounded-full"></div>
-                    </div>
-                    <span class="ml-4 text-slate-400">developer_profile.go</span>
-                </div>
-                
-                <div class="text-left">
-                    <div class="text-slate-400"><span class="text-violet-400">package</span> main</div>
-                    <div class="mt-4">
-                        <div class="text-slate-400"><span class="text-violet-400">type</span> <span class="text-cyan-400">Developer</span> <span class="text-violet-400">struct</span> {</div>
-                        <div class="ml-4">Name       <span class="text-emerald-400">string</span></div>
-                        <div class="ml-4">Focus      []<span class="text-emerald-400">string</span></div>
-                        <div class="ml-4">Experience <span class="text-emerald-400">int</span></div>
-                        <div class="ml-4">Languages  []<span class="text-emerald-400">string</span></div>
-                        <div class="ml-4">Frameworks []<span class="text-emerald-400">string</span></div>
-                        <div class="text-slate-400">}</div>
-                    </div>
-                    <div class="mt-4 text-slate-500">// Building scalable systems with modern tech stack</div>
-                    <div class="text-slate-500">// Passionate about clean architecture and DDD principles</div>
-                </div>
-            </div>
-            
-            <!-- Quick Stats -->
-            <div class="flex justify-center space-x-8 text-sm">
-                <div class="text-center">
-                    <div id="public-repos" class="text-2xl font-bold text-cyan-400">
-                        <span class="loading-skeleton inline-block w-8 h-8 rounded"></span>
-                    </div>
-                    <div class="text-slate-400">Public Repos</div>
-                </div>
-                <div class="text-center">
-                    <div id="total-stars" class="text-2xl font-bold text-violet-400">
-                        <span class="loading-skeleton inline-block w-8 h-8 rounded"></span>
-                    </div>
-                    <div class="text-slate-400">Stars Earned</div>
-                </div>
-                <div class="text-center">
-                    <div id="contributions" class="text-2xl font-bold text-emerald-400">
-                        <span class="loading-skeleton inline-block w-8 h-8 rounded"></span>
-                    </div>
-                    <div class="text-slate-400">Contributions</div>
-                </div>
-            </div>
+        <div>
+          <dt>stars</dt>
+          <dd data-stat="stars">18</dd>
         </div>
-    </section>
-    
-    <!-- Tech Stack Section -->
-    <section class="py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Tech Stack</h2>
-            
-            <!-- Backend Technologies -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-semibold mb-8 text-center text-cyan-400">
-                    <i class="fas fa-server mr-3"></i>Backend Development
-                </h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
-                        <i class="fab fa-golang text-3xl text-cyan-400 mb-2"></i>
-                        <div class="text-sm font-medium">Go</div>
-                    </div>
-                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
-                        <i class="fas fa-rocket text-3xl text-emerald-400 mb-2"></i>
-                        <div class="text-sm font-medium">Gin</div>
-                    </div>
-                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
-                        <i class="fas fa-cube text-3xl text-violet-400 mb-2"></i>
-                        <div class="text-sm font-medium">Go-Zero</div>
-                    </div>
-                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
-                        <i class="fas fa-database text-3xl text-amber-400 mb-2"></i>
-                        <div class="text-sm font-medium">GORM</div>
-                    </div>
-                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
-                        <i class="fas fa-server text-3xl text-blue-400 mb-2"></i>
-                        <div class="text-sm font-medium">MySQL</div>
-                    </div>
-                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
-                        <i class="fas fa-memory text-3xl text-red-400 mb-2"></i>
-                        <div class="text-sm font-medium">Redis</div>
-                    </div>
-                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
-                        <i class="fas fa-envelope text-3xl text-orange-400 mb-2"></i>
-                        <div class="text-sm font-medium">RabbitMQ</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Frontend Technologies -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-semibold mb-8 text-center text-violet-400">
-                    <i class="fas fa-desktop mr-3"></i>Frontend Development
-                </h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
-                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
-                        <i class="fab fa-vuejs text-3xl text-emerald-400 mb-2"></i>
-                        <div class="text-sm font-medium">Vue.js</div>
-                    </div>
-                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
-                        <i class="fab fa-js-square text-3xl text-blue-400 mb-2"></i>
-                        <div class="text-sm font-medium">TypeScript</div>
-                    </div>
-                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
-                        <i class="fas fa-palette text-3xl text-blue-500 mb-2\"></i>
-                        <div class="text-sm font-medium">Element Plus</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- DevOps & Tools -->
-            <div>
-                <h3 class="text-2xl font-semibold mb-8 text-center text-emerald-400">
-                    <i class="fas fa-cogs mr-3"></i>DevOps & Tools
-                </h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
-                        <i class="fab fa-docker text-3xl text-blue-400 mb-2\"></i>
-                        <div class="text-sm font-medium">Docker</div>
-                    </div>
-                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
-                        <i class="fas fa-play-circle text-3xl text-orange-400 mb-2\"></i>
-                        <div class="text-sm font-medium">GitHub Actions</div>
-                    </div>
-                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
-                        <i class="fab fa-linux text-3xl text-yellow-400 mb-2\"></i>
-                        <div class="text-sm font-medium">Linux</div>
-                    </div>
-                    <div class="tech-badge bg-slate-800 rounded-xl p-4 text-center">
-                        <i class="fas fa-code-branch text-3xl text-orange-500 mb-2\"></i>
-                        <div class="text-sm font-medium">Git</div>
-                    </div>
-                </div>
-            </div>
+        <div>
+          <dt>followers</dt>
+          <dd data-stat="followers">9</dd>
         </div>
-    </section>
-    
-    <!-- Featured Projects Section -->
-    <section class="py-20 px-4 bg-slate-900/50">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Featured Projects</h2>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Volunteer Team Project -->
-                <div class="card-hover bg-slate-800 rounded-2xl p-6 border border-slate-700">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-users text-2xl text-cyan-400 mr-3"></i>
-                        <h3 class="text-xl font-semibold">Volunteer Team</h3>
-                    </div>
-                    <p class="text-slate-400 mb-4">Full-stack volunteer management system with authentication, reporting, and permission control.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-cyan-500/20 text-cyan-400 px-2 py-1 rounded text-xs">Vue 3</span>
-                        <span class="bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded text-xs">Gin</span>
-                        <span class="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs">MySQL</span>
-                        <span class="bg-red-500/20 text-red-400 px-2 py-1 rounded text-xs">Redis</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center text-sm text-slate-400">
-                            <i class="fas fa-star mr-1 text-yellow-400"></i>
-                            <span id="volunteer-stars">
-                                <span class="loading-skeleton inline-block w-4 h-4 rounded"></span>
-                            </span>
-                        </div>
-                        <a href="https://github.com/Goblin-Master/volunteer-team" class="text-cyan-400 hover:text-cyan-300 transition-colors">
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Debate System Project -->
-                <div class="card-hover bg-slate-800 rounded-2xl p-6 border border-slate-700">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-robot text-2xl text-violet-400 mr-3"></i>
-                        <h3 class="text-xl font-semibold">AI Debate System</h3>
-                    </div>
-                    <p class="text-slate-400 mb-4">Microservices debate platform with real-time WebSocket communication and AI auto-debating.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-violet-500/20 text-violet-400 px-2 py-1 rounded text-xs">Go-Zero</span>
-                        <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs">WebSocket</span>
-                        <span class="bg-purple-500/20 text-purple-400 px-2 py-1 rounded text-xs">AI</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center text-sm text-slate-400">
-                            <i class="fas fa-code-branch mr-1 text-blue-400"></i>
-                            <span id="debate-commits">
-                                <span class="loading-skeleton inline-block w-4 h-4 rounded"></span>
-                            </span>
-                        </div>
-                        <a href="https://github.com/Goblin-Master/Debate-System" class="text-violet-400 hover:text-violet-300 transition-colors">
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Island Project -->
-                <div class="card-hover bg-slate-800 rounded-2xl p-6 border border-slate-700">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-palm-tree text-2xl text-emerald-400 mr-3"></i>
-                        <h3 class="text-xl font-semibold">🏝️ Island</h3>
-                    </div>
-                    <p class="text-slate-400 mb-4">Comprehensive Go web framework with AI integration, user management, QQ login, and real-time chat features. Built with modern architecture patterns including DDD and IOC design principles.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-cyan-500/20 text-cyan-400 px-2 py-1 rounded text-xs">Gin</span>
-                        <span class="bg-orange-500/20 text-orange-400 px-2 py-1 rounded text-xs">GORM</span>
-                        <span class="bg-purple-500/20 text-purple-400 px-2 py-1 rounded text-xs">AI</span>
-                        <span class="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs">QQ Login</span>
-                        <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs">WebSocket</span>
-                        <span class="bg-red-500/20 text-red-400 px-2 py-1 rounded text-xs">Redis</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center text-sm text-slate-400">
-                            <i class="fas fa-star mr-1 text-yellow-400"></i>
-                            <span id="island-stars">
-                                <span class="loading-skeleton inline-block w-4 h-4 rounded"></span>
-                            </span>
-                        </div>
-                        <a href="https://github.com/Goblin-Master/island/tree/test" class="text-emerald-400 hover:text-emerald-300 transition-colors">
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+      </dl>
+    </div>
+
+    <div class="panel" aria-label="终端演示">
+      <div class="panel-bar">
+        <i></i><i></i><i></i>
+        <span class="panel-title">~/goblin</span>
+      </div>
+<pre><span class="p-prompt">$</span> <span class="p-str">go run ./cmd</span>
+<span class="p-key">agent</span>    loop ready
+<span class="p-key">tools</span>    calculator · search · read_docs · todo
+<span class="p-key">memory</span>   summary + last 12 messages
+<span class="p-key">session</span>  <span class="p-val">7f3a9c</span>
+<span class="p-prompt">$</span> <span class="p-cursor" aria-hidden="true"></span></pre>
+    </div>
+  </section>
+
+  <!-- ============================ work ============================ -->
+  <section id="work">
+    <div class="sec-head">
+      <span class="idx">01</span>
+      <h2>项目</h2>
+      <span class="rule"></span>
+    </div>
+
+    <div class="grid">
+      <a class="card reveal" href="https://github.com/Goblin-Master/goblin" target="_blank" rel="noopener" data-repo="goblin">
+        <div class="card-top">
+          <span class="card-name">goblin</span>
+          <span class="card-arrow">↗</span>
         </div>
-    </section>
-    
-    <!-- Current Focus Section -->
-    <section class="py-20 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-16 gradient-text">Current Focus</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
-                    <div class="text-4xl mb-4">🏗️</div>
-                    <h3 class="text-xl font-semibold mb-3 text-cyan-400">Microservices Architecture</h3>
-                    <p class="text-slate-400">Building scalable distributed systems with clean architecture principles</p>
-                </div>
-                
-                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
-                    <div class="text-4xl mb-4">🤖</div>
-                    <h3 class="text-xl font-semibold mb-3 text-violet-400">AI Integration</h3>
-                    <p class="text-slate-400">Exploring AI-powered applications and intelligent automation systems</p>
-                </div>
-                
-                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
-                    <div class="text-4xl mb-4">📊</div>
-                    <h3 class="text-xl font-semibold mb-3 text-emerald-400">Performance Optimization</h3>
-                    <p class="text-slate-400">High-concurrency system design and performance tuning</p>
-                </div>
-                
-                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
-                    <div class="text-4xl mb-4">🛠️</div>
-                    <h3 class="text-xl font-semibold mb-3 text-amber-400">Clean Architecture</h3>
-                    <p class="text-slate-400">DDD, SOLID principles, and modern design patterns</p>
-                </div>
-            </div>
+        <p>从零实现的 CLI Agent。主循环、原生 tool_calls、上下文压缩、Session 持久化都自己写，不依赖 LangGraph 这类框架。</p>
+        <div class="tags">
+          <span class="tag">Go</span>
+          <span class="tag">Cobra</span>
+          <span class="tag">DeepSeek</span>
+          <span class="tag">MySQL</span>
         </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="py-12 px-4 bg-slate-900/50">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="mb-8">
-                <blockquote class="text-lg italic text-slate-300 mb-4">
-                    "Every line of code is a step towards innovation. I'm passionate about building systems that not only work but inspire others to push the boundaries of what's possible."
-                </blockquote>
-            </div>
-            
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="https://github.com/Goblin-Master" class="text-slate-400 hover:text-cyan-400 transition-colors text-2xl">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:your.email@example.com" class="text-slate-400 hover:text-violet-400 transition-colors text-2xl">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://linkedin.com/in/yourprofile" class="text-slate-400 hover:text-emerald-400 transition-colors text-2xl">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
-            
-            <div class="text-slate-500 text-sm">
-                Last Updated: <span id="current-date"></span>
-            </div>
+        <div class="card-meta"><span data-lang>Go</span> · <span data-updated>近期更新</span></div>
+      </a>
+
+      <a class="card reveal" href="https://github.com/Goblin-Master/volunteer-team" target="_blank" rel="noopener" data-repo="volunteer-team" data-accent="teal">
+        <div class="card-top">
+          <span class="card-name">volunteer-team</span>
+          <span class="card-arrow">↗</span>
         </div>
-    </footer>
-    
-    <script>
-        // GitHub API integration
-        class GitHubStats {
-            constructor(username) {
-                this.username = username;
-                this.baseUrl = 'https://api.github.com';
-            }
-            
-            async fetchUserStats() {
-                try {
-                    const response = await fetch(`${this.baseUrl}/users/${this.username}`);
-                    if (!response.ok) throw new Error('Failed to fetch user data');
-                    return await response.json();
-                } catch (error) {
-                    console.error('Error fetching GitHub user stats:', error);
-                    return null;
-                }
-            }
-            
-            async fetchRepoStats(repoName, branch = 'main') {
-                try {
-                    const response = await fetch(`${this.baseUrl}/repos/${this.username}/${repoName}`);
-                    if (!response.ok) throw new Error(`Failed to fetch repo data: ${repoName}`);
-                    const repoData = await response.json();
-                    
-                    // If test branch is specified, we need to handle it differently
-                    // GitHub API doesn't directly support branch-specific repo info
-                    // We'll use the default branch info but note the test branch preference
-                    if (branch === 'test') {
-                        repoData.preferred_branch = 'test';
-                    }
-                    
-                    return repoData;
-                } catch (error) {
-                    console.error(`Error fetching repo stats for ${repoName}:`, error);
-                    return null;
-                }
-            }
-            
-            async fetchAllRepos() {
-                try {
-                    const response = await fetch(`${this.baseUrl}/users/${this.username}/repos?per_page=100`);
-                    if (!response.ok) throw new Error('Failed to fetch repositories');
-                    return await response.json();
-                } catch (error) {
-                    console.error('Error fetching repositories:', error);
-                    return [];
-                }
-            }
-            
-            calculateTotalStars(repos) {
-                return repos.reduce((total, repo) => total + (repo.stargazers_count || 0), 0);
-            }
-            
-            async fetchContributionData() {
-                try {
-                    // Try to get contribution data from GitHub's GraphQL API
-                    // This is a simplified approach - in production, you'd want proper authentication
-                    const query = `
-                        query($username: String!) {
-                            user(login: $username) {
-                                contributionsCollection {
-                                    contributionCalendar {
-                                        totalContributions
-                                    }
-                                }
-                            }
-                        }
-                    `;
-                    
-                    const response = await fetch('https://api.github.com/graphql', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Bearer ' // Would need a token for this
-                        },
-                        body: JSON.stringify({
-                            query: query,
-                            variables: { username: this.username }
-                        })
-                    });
-                    
-                    if (response.ok) {
-                        const data = await response.json();
-                        return data.data?.user?.contributionsCollection?.contributionCalendar?.totalContributions || 0;
-                    }
-                } catch (error) {
-                    console.error('Error fetching contribution data:', error);
-                }
-                
-                // Fallback: calculate approximate contributions from recent activity
-                return await this.calculateApproximateContributions();
-            }
-            
-            async calculateApproximateContributions() {
-                try {
-                    // Get recent events as a proxy for contributions
-                    const response = await fetch(`${this.baseUrl}/users/${this.username}/events/public`);
-                    if (!response.ok) return Math.floor(Math.random() * 500) + 100;
-                    
-                    const events = await response.json();
-                    
-                    // Count different types of contributions
-                    let contributionCount = 0;
-                    const oneYearAgo = new Date();
-                    oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
-                    
-                    events.forEach(event => {
-                        const eventDate = new Date(event.created_at);
-                        if (eventDate >= oneYearAgo) {
-                            // Different event types contribute differently
-                            switch (event.type) {
-                                case 'PushEvent':
-                                    contributionCount += event.payload?.commits?.length || 1;
-                                    break;
-                                case 'CreateEvent':
-                                case 'DeleteEvent':
-                                case 'IssuesEvent':
-                                case 'PullRequestEvent':
-                                    contributionCount += 1;
-                                    break;
-                                case 'WatchEvent':
-                                case 'ForkEvent':
-                                    contributionCount += 0.5; // Less weight for these
-                                    break;
-                            }
-                        }
-                    });
-                    
-                    return Math.floor(contributionCount) || Math.floor(Math.random() * 300) + 50;
-                } catch (error) {
-                    console.error('Error calculating contributions:', error);
-                    return Math.floor(Math.random() * 300) + 50;
-                }
-            }
-            
-            async updateStats() {
-                // Update user stats
-                const userData = await this.fetchUserStats();
-                if (userData) {
-                    this.updateElement('public-repos', userData.public_repos || 0);
-                    
-                    // Calculate total stars across all repositories
-                    const allRepos = await this.fetchAllRepos();
-                    const totalStars = this.calculateTotalStars(allRepos);
-                    this.updateElement('total-stars', totalStars);
-                    
-                    // Get real contribution data
-                    const contributions = await this.fetchContributionData();
-                    this.updateElement('contributions', contributions);
-                }
-                
-                // Update repo stats
-                const repos = [
-                    { name: 'volunteer-team', element: 'volunteer-stars', type: 'stars' },
-                    { name: 'Debate-System', element: 'debate-commits', type: 'commits' },
-                    { name: 'island', element: 'island-stars', type: 'stars', branch: 'test' }
-                ];
-                
-                for (const repo of repos) {
-                    const repoData = await this.fetchRepoStats(repo.name, repo.branch);
-                    if (repoData) {
-                        if (repo.type === 'stars') {
-                            this.updateElement(repo.element, repoData.stargazers_count || 0);
-                        } else if (repo.type === 'commits') {
-                            // Mock commit count since it requires additional API calls
-                            this.updateElement(repo.element, Math.floor(Math.random() * 100) + 20);
-                        }
-                    }
-                }
-            }
-            
-            updateElement(elementId, value) {
-                const element = document.getElementById(elementId);
-                if (element) {
-                    element.textContent = value;
-                    element.classList.remove('loading-skeleton');
-                }
-            }
+        <p>志愿团队管理系统。认证、权限、报表一条龙，前后端一体的完整业务实现。</p>
+        <div class="tags">
+          <span class="tag">Vue 3</span>
+          <span class="tag">Gin</span>
+          <span class="tag">GORM</span>
+          <span class="tag">Redis</span>
+          <span class="tag">RabbitMQ</span>
+        </div>
+        <div class="card-meta"><span data-lang>Vue</span> · <span data-updated>近期更新</span></div>
+      </a>
+
+      <a class="card reveal" href="https://github.com/Goblin-Master/island" target="_blank" rel="noopener" data-repo="island">
+        <div class="card-top">
+          <span class="card-name">island</span>
+          <span class="card-arrow">↗</span>
+        </div>
+        <p>按 DDD + IOC 思路搭的 Go Web 框架，带 AI 能力、QQ 登录与实时聊天。</p>
+        <div class="tags">
+          <span class="tag">Go</span>
+          <span class="tag">Gin</span>
+          <span class="tag">WebSocket</span>
+          <span class="tag">GORM</span>
+        </div>
+        <div class="card-meta"><span data-lang>Go</span> · <span data-updated>近期更新</span></div>
+      </a>
+
+      <a class="card reveal" href="https://github.com/Goblin-Master/Debate-System" target="_blank" rel="noopener" data-repo="Debate-System" data-accent="teal">
+        <div class="card-top">
+          <span class="card-name">Debate-System</span>
+          <span class="card-arrow">↗</span>
+        </div>
+        <p>基于 go-zero 的辩论系统，微服务拆分，WebSocket 通讯加 AI 自动辩论。</p>
+        <div class="tags">
+          <span class="tag">go-zero</span>
+          <span class="tag">WebSocket</span>
+          <span class="tag">微服务</span>
+        </div>
+        <div class="card-meta"><span data-lang>Go</span> · <span data-updated>近期更新</span></div>
+      </a>
+
+      <a class="card reveal" href="https://github.com/Goblin-Master/statusly" target="_blank" rel="noopener" data-repo="statusly">
+        <div class="card-top">
+          <span class="card-name">statusly</span>
+          <span class="card-arrow">↗</span>
+        </div>
+        <p>极简 HTTP 状态码速查浏览器扩展。改完代码就能用，不打断手上正在调的东西。</p>
+        <div class="tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">Manifest V3</span>
+        </div>
+        <div class="card-meta"><span data-lang>JavaScript</span> · <span data-updated>近期更新</span></div>
+      </a>
+
+      <a class="card reveal" href="https://github.com/Goblin-Master/Claw" target="_blank" rel="noopener" data-repo="Claw" data-accent="teal">
+        <div class="card-top">
+          <span class="card-name">Claw</span>
+          <span class="card-arrow">↗</span>
+        </div>
+        <p>用 Cobra 一点点写出来的 CLI 实验场。从命令结构到 flag 处理，一路记下来。</p>
+        <div class="tags">
+          <span class="tag">Go</span>
+          <span class="tag">Cobra</span>
+        </div>
+        <div class="card-meta"><span data-lang>Go</span> · <span data-updated>近期更新</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================ stack ============================ -->
+  <section id="stack">
+    <div class="sec-head">
+      <span class="idx">02</span>
+      <h2>技术栈</h2>
+      <span class="rule"></span>
+    </div>
+
+    <div class="stack-group">
+      <h3>后端</h3>
+      <div class="chips">
+        <span class="chip">Go</span>
+        <span class="chip">Gin</span>
+        <span class="chip">go-zero</span>
+        <span class="chip">GORM</span>
+        <span class="chip">Cobra</span>
+        <span class="chip">Wire</span>
+        <span class="chip">WebSocket</span>
+      </div>
+    </div>
+
+    <div class="stack-group">
+      <h3>数据</h3>
+      <div class="chips">
+        <span class="chip">MySQL</span>
+        <span class="chip">Redis</span>
+        <span class="chip">RabbitMQ</span>
+      </div>
+    </div>
+
+    <div class="stack-group">
+      <h3>前端</h3>
+      <div class="chips">
+        <span class="chip">Vue 3</span>
+        <span class="chip">TypeScript</span>
+        <span class="chip">Element Plus</span>
+        <span class="chip">Pinia</span>
+      </div>
+    </div>
+
+    <div class="stack-group">
+      <h3>工具</h3>
+      <div class="chips">
+        <span class="chip">Docker</span>
+        <span class="chip">GitHub Actions</span>
+        <span class="chip">Linux</span>
+        <span class="chip">Git</span>
+        <span class="chip">Rust</span>
+        <span class="chip">Python</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ now ============================ -->
+  <section id="now">
+    <div class="sec-head">
+      <span class="idx">03</span>
+      <h2>近况</h2>
+      <span class="rule"></span>
+    </div>
+
+    <ul class="now">
+      <li><span>在写 <strong>goblin</strong>：原生 tool_calls、上下文压缩、Session 严格恢复，尽量不引入框架。</span></li>
+      <li><span>在啃 <strong>Rust</strong> 的所有权模型，顺便拿它写点小工具。</span></li>
+      <li><span>想补的是<strong>高并发下的可观测性</strong>——trace 打通、指标别只当摆设。</span></li>
+      <li><span>空闲时给开源项目提 issue 和补丁，最近在看 <strong>eino</strong>、<strong>coze-loop</strong>。</span></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="quote">写代码是把手弄脏的活。</p>
+    <div class="foot">
+      <span>© <span id="year">2026</span> Goblin-Master</span>
+      <div class="foot-links">
+        <a href="https://github.com/Goblin-Master" target="_blank" rel="noopener">github</a>
+        <a href="https://github.com/Goblin-Master/Goblin-Master/issues/new" target="_blank" rel="noopener">提个 issue</a>
+        <a href="https://github.com/Goblin-Master/Goblin-Master" target="_blank" rel="noopener">源文件</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var USER = 'Goblin-Master';
+  var API = 'https://api.github.com';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------------------------------------------------- count up ----- */
+  function countUp(el, target) {
+    var start = parseInt(el.textContent, 10) || 0;
+    if (reduce || start === target) {
+      el.textContent = target;
+      return;
+    }
+    var t0 = null;
+    var dur = 700;
+    function step(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(start + (target - start) * eased);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function setStat(key, value) {
+    var el = document.querySelector('[data-stat="' + key + '"]');
+    if (el && typeof value === 'number' && isFinite(value)) countUp(el, value);
+  }
+
+  /* ---------------------------------------------------- relative ----- */
+  function relTime(iso) {
+    if (!iso) return null;
+    var diff = Date.now() - new Date(iso).getTime();
+    var day = 86400000;
+    if (diff < 0) return '刚刚更新';
+    var d = Math.floor(diff / day);
+    if (d < 1) return '今天更新';
+    if (d < 30) return d + ' 天前更新';
+    var m = Math.floor(d / 30);
+    if (m < 12) return m + ' 个月前更新';
+    return Math.floor(m / 12) + ' 年前更新';
+  }
+
+  function fillCard(repo) {
+    var card = document.querySelector('[data-repo="' + repo.name + '"]');
+    if (!card) return;
+    var lang = card.querySelector('[data-lang]');
+    var upd = card.querySelector('[data-updated]');
+    if (lang && repo.language) lang.textContent = repo.language;
+    if (upd) {
+      var rel = relTime(repo.pushed_at);
+      if (rel) upd.textContent = rel;
+    }
+  }
+
+  /* --------------------------------------------------------- fetch --- */
+  function getJSON(url) {
+    return fetch(url, { headers: { Accept: 'application/vnd.github+json' } })
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      });
+  }
+
+  function loadStats() {
+    Promise.all([
+      getJSON(API + '/users/' + USER),
+      getJSON(API + '/users/' + USER + '/repos?per_page=100&sort=pushed')
+    ]).then(function (res) {
+      var user = res[0];
+      var repos = res[1];
+
+      setStat('repos', user.public_repos);
+      setStat('followers', user.followers);
+      setStat('stars', repos.reduce(function (sum, r) {
+        return sum + (r.stargazers_count || 0);
+      }, 0));
+
+      repos.forEach(fillCard);
+    }).catch(function (err) {
+      /* 静默失败：页面上保留的是硬编码的真实数值，不会卡在占位符 */
+      console.warn('[github] stats unavailable:', err.message);
+    });
+  }
+
+  /* -------------------------------------------------------- reveal --- */
+  function initReveal() {
+    var items = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
         }
-        
-        // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize GitHub stats
-            const githubStats = new GitHubStats('Goblin-Master');
-            githubStats.updateStats();
-            
-            // Update current date
-            const currentDate = new Date().toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
-            document.getElementById('current-date').textContent = currentDate;
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-n            });
-            
-            // Add scroll-based animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-            
-            // Observe all cards and sections for fade-in animation
-            document.querySelectorAll('.card-hover, section > div').forEach(el => {
-                el.classList.add('fade-in');
-                observer.observe(el);
-            });
-        });
-    </script>
+      });
+    }, { rootMargin: '0px 0px -60px 0px', threshold: 0.05 });
+
+    items.forEach(function (el) { io.observe(el); });
+  }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+  initReveal();
+  loadStats();
+})();
+</script>
+
 </body>
 </html>
