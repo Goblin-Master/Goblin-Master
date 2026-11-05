@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="14" fill="#0B0C0E"/>
-  <path d="M32 9 L50.2 19.5 L50.2 44.5 L32 55 L13.8 44.5 L13.8 19.5 Z"
-        fill="none" stroke="#E0A458" stroke-opacity="0.85" stroke-width="2.6"/>
-  <text x="32" y="33" text-anchor="middle" dominant-baseline="central"
-        font-family="'JetBrains Mono',Consolas,monospace" font-size="19" font-weight="700" fill="#E0A458">GM</text>
-</svg>
