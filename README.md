@@ -35,4 +35,5 @@
 
 <p>
   <a href="https://github.com/Goblin-Master"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-%2312100E.svg?&logo=github&logoColor=white" /></a>
+  <a href="mailto:2896151192@qq.com"><img alt="Email" src="https://img.shields.io/badge/Email-2896151192%40qq.com-E0A458" /></a>
 </p>
