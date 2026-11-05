@@ -5,7 +5,7 @@
     "backgroundColor": "#0B0C0E",
     "foregroundColor": "#EDEAE5",
     "strongColor": "#E0A458",
-    "weakColor": "#4A4F57",
+    "weakColor": "#7A8088",
     "radarColor": "#E0A458",
     "growingAnimation": true,
     "contribColors": ["#23262C", "#4E3A24", "#7E5A2B", "#B4813A", "#E8B266"]
