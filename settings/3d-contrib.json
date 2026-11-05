@@ -5,10 +5,10 @@
     "backgroundColor": "#0B0C0E",
     "foregroundColor": "#EDEAE5",
     "strongColor": "#E0A458",
-    "weakColor": "#3A3F46",
+    "weakColor": "#4A4F57",
     "radarColor": "#E0A458",
     "growingAnimation": true,
-    "contribColors": ["#171A1F", "#4A3520", "#7A5527", "#B4802F", "#E0A458"]
+    "contribColors": ["#23262C", "#4E3A24", "#7E5A2B", "#B4813A", "#E8B266"]
   },
   {
     "type": "normal",
@@ -19,6 +19,6 @@
     "weakColor": "#B9B4AC",
     "radarColor": "#B4793A",
     "growingAnimation": true,
-    "contribColors": ["#EDE9E1", "#F0D9BC", "#DFB57A", "#C68C42", "#8F6427"]
+    "contribColors": ["#E8E3D9", "#F1DCC0", "#DFB57A", "#C1863C", "#8A5F26"]
   }
 ]
